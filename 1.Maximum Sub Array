@@ -1,0 +1,83 @@
+
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main
+{
+    
+    
+    static  int output[] = new int[40];
+    
+    
+          
+    public static int sub(int [] arr)
+      {
+          int len = arr.length;
+          int max,curr;max=curr=0;
+          int index=-1;
+          int o=0;
+          for(int k=0;k<len;k++)
+          {
+          for(int j=1;j<len;j++)
+          {
+          for(int i=k;i<len;i++)
+          {
+           curr+=arr[i];
+           if(curr>=0)
+             {
+              if(max<curr)
+                {
+                   max=curr;
+                   index=i; 
+                }
+             }
+             else 
+              curr=0;
+          i+=j;
+          } 
+              output[o]=max;
+              max=0;curr=0;index=-1;
+              o++;
+          }}
+        //   for(int i=0;i<output.length;i++)
+            //  System.out.println(output[i]);
+          Arrays.sort(output);
+          
+          return output[39];
+      }
+    // Complete the maxSubsetSum function below.
+    static int maxSubsetSum(int[] arr) {
+       int len = arr.length;
+       int  res=sub(arr);
+       
+   
+ 
+          
+          
+     
+    return res;
+
+    }
+
+
+    public static void main(String[] args) {
+
+       Scanner scanner = new Scanner(System.in);
+       
+
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+
+       for(int i=0;i<n;i++)
+         {
+             arr[i]=scanner.nextInt();
+         }
+
+        int res = maxSubsetSum(arr); 
+        System.out.println(res);
+
+    
+    }
+
+
+}
